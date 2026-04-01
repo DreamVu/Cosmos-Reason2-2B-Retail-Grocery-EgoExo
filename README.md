@@ -28,7 +28,7 @@ Average **+23.8pp** improvement over zero-shot baseline across 20+ evaluated tas
 ### Links
 - **Dataset:** [DreamVu/PRISM-100K](https://huggingface.co/datasets/DreamVu/Prism)
 - **HuggingFace Model:** [DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo](https://huggingface.co/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo)
-- **Paper:** [PRISM: A Multi-View Multi-Capability Retail Video Dataset for Embodied VLMs](https://dreamvu.ai/prism)
+- **Paper:** [PRISM: A Multi-View Multi-Capability Retail Video Dataset for Embodied VLMs](https://arxiv.org/abs/2603.29281)
 
 | Domain | Baseline | PRISM | Delta |
 |--------|:---:|:---:|:---:|
@@ -89,7 +89,7 @@ Derivative Model of nvidia/Cosmos-Reason2-2B under [NVIDIA Open Model License](h
     title={PRISM: A Multi-View Multi-Capability Retail Video Dataset for Embodied Vision-Language Models},
     author={DreamVu AI},
     year={2026},
-    url={https://dreamvu.ai/prism}
+    url={https://arxiv.org/abs/2603.29281}
 }
 ```
 
