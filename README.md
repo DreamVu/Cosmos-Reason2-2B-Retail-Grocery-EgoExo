@@ -23,7 +23,12 @@ python inference.py --video path/to/clip.mp4 --question "What is the person doin
 
 ## Performance
 
-Average **+23.8pp** improvement over zero-shot baseline across 21 evaluated tasks.
+Average **+23.8pp** improvement over zero-shot baseline across 20+ evaluated tasks.
+
+### Links
+- **Dataset:** [DreamVu/PRISM-100K](https://huggingface.co/datasets/DreamVu/Prism)
+- **HuggingFace Model:** [DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo](https://huggingface.co/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo)
+- **Paper:** [PRISM: A Multi-View Multi-Capability Retail Video Dataset for Embodied VLMs](https://dreamvu.ai/prism)
 
 | Domain | Baseline | PRISM | Delta |
 |--------|:---:|:---:|:---:|
