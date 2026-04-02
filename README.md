@@ -44,7 +44,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 ### Object Counting & Tracking
 
-<video src="examples/counting_basket.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/counting_basket.mp4
 
 > **Q:** How many products did the person put into the basket?
 >
@@ -52,7 +52,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 >
 > **PRISM:** The person put one product, a small red container, into the basket.
 
-<video src="examples/counting_before_after.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/counting_before_after.mp4
 
 > **Q:** Count the products in the basket at the beginning and at the end.
 >
@@ -60,7 +60,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 >
 > **PRISM:** The basket contains 2 items at the start, and 3 items at the end.
 
-<video src="examples/counting_last_item.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/counting_last_item.mp4
 
 > **Q:** Count the number of products in the basket by the end. What was the last item?
 >
@@ -70,7 +70,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 ### Hand Interaction Recognition
 
-<video src="examples/hand_interaction.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/hand_interaction.mp4
 
 > **Q:** What actions are the hands performing?
 >
@@ -80,7 +80,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 ### Goal-Conditioned Reasoning (Chain-of-Thought)
 
-<video src="examples/goal_reasoning.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/goal_reasoning.mp4
 
 > **Q:** Is the person still evaluating the product or ready to place it in the basket?
 >
@@ -90,7 +90,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 ### Scene Understanding & Localization
 
-<video src="examples/action_recognition.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/action_recognition.mp4
 
 > **Q:** What is he doing in the scene?
 >
@@ -98,7 +98,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 >
 > **PRISM:** The person is inspecting a blackberry. They hold it in their hand and examine it closely.
 
-<video src="examples/localization.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/localization.mp4
 
 > **Q:** Where is the person located?
 >
@@ -106,7 +106,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 >
 > **PRISM:** The person is in the Aisle (Personal Care/Flour).
 
-<video src="examples/activity_reasoning.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/activity_reasoning.mp4
 
 > **Q:** What activity is this person performing and why?
 >
@@ -116,7 +116,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 ### Factual Accuracy & Domain Knowledge
 
-<video src="examples/product_counting.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/product_counting.mp4
 
 > **Q:** How many products did the person check? Respond with a number only.
 >
@@ -124,7 +124,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 >
 > **PRISM:** 2
 
-<video src="examples/domain_knowledge.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/domain_knowledge.mp4
 
 > **Q:** Would you expect to find beef in this aisle?
 >
@@ -134,7 +134,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 ### Spatial Reasoning & Affordances
 
-<video src="examples/affordance_fridge.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/affordance_fridge.mp4
 
 > **Q:** Can we open the refrigerator from where we are standing?
 >
@@ -142,7 +142,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 >
 > **PRISM:** *\<think\>The person's current position is at a distance from the refrigerator, indicating they cannot interact directly.\</think\>* No, the refrigerator is too far away to be opened from this position.
 
-<video src="examples/navigation_fridge.mp4" controls muted loop width="400"></video>
+https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/navigation_fridge.mp4
 
 > **Q:** How can we get to the refrigerator from where we are standing?
 >
