@@ -48,25 +48,25 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 > **Q:** How many products did the person put into the basket?
 >
-> **Cosmos-Reason2-2B:** Two products.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ Two products.
 >
-> **PRISM:** The person put one product, a small red container, into the basket.
+> $\color{green}{\textbf{PRISM:}}$ The person put one product, a small red container, into the basket.
 
 ![counting_before_after](examples/counting_before_after.gif)
 
 > **Q:** Count the products in the basket at the beginning and at the end.
 >
-> **Cosmos-Reason2-2B:** There are 3 products in the basket at the beginning and 4 products at the end.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ There are 3 products in the basket at the beginning and 4 products at the end.
 >
-> **PRISM:** The basket contains 2 items at the start, and 3 items at the end.
+> $\color{green}{\textbf{PRISM:}}$ The basket contains 2 items at the start, and 3 items at the end.
 
 ![counting_last_item](examples/counting_last_item.gif)
 
 > **Q:** Count the number of products in the basket by the end. What was the last item?
 >
-> **Cosmos-Reason2-2B:** There is one product in the basket by the end, which is a blue bottle.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ There is one product in the basket by the end, which is a blue bottle.
 >
-> **PRISM:** The shopping basket contains 2 items. The last item added was the Hershey's Cocoa container.
+> $\color{green}{\textbf{PRISM:}}$ The shopping basket contains 2 items. The last item added was the Hershey's Cocoa container.
 
 ### Hand Interaction Recognition
 
@@ -74,9 +74,9 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 > **Q:** What actions are the hands performing?
 >
-> **Cosmos-Reason2-2B:** The hands are holding a blue basket and placing a jar into it.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ The hands are holding a blue basket and placing a jar into it.
 >
-> **PRISM:** The left hand is holding the basket, and the right hand is grasping an item.
+> $\color{green}{\textbf{PRISM:}}$ The left hand is holding the basket, and the right hand is grasping an item.
 
 ### Goal-Conditioned Reasoning (Chain-of-Thought)
 
@@ -84,9 +84,9 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 > **Q:** Is the person still evaluating the product or ready to place it in the basket?
 >
-> **Cosmos-Reason2-2B:** The person is still evaluating the product. Next, he should place the guava in the basket.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ The person is still evaluating the product. Next, he should place the guava in the basket.
 >
-> **PRISM:** *\<think\>The person is currently holding and inspecting the guava. The current sub-goal is "Evaluate Product Quality," part of the larger goal "Select Produce Item."\</think\>* The person is still evaluating the guava's quality. The next action would be to place it in the basket if it meets their standards, or return it to the display.
+> $\color{green}{\textbf{PRISM:}}$ *\<think\>The person is currently holding and inspecting the guava. The current sub-goal is "Evaluate Product Quality," part of the larger goal "Select Produce Item."\</think\>* The person is still evaluating the guava's quality. The next action would be to place it in the basket if it meets their standards, or return it to the display.
 
 ### Scene Understanding & Localization
 
@@ -94,25 +94,25 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 > **Q:** What is he doing in the scene?
 >
-> **Cosmos-Reason2-2B:** He is reaching into a fruit display case.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ He is reaching into a fruit display case.
 >
-> **PRISM:** The person is inspecting a blackberry. They hold it in their hand and examine it closely.
+> $\color{green}{\textbf{PRISM:}}$ The person is inspecting a blackberry. They hold it in their hand and examine it closely.
 
 ![localization](examples/localization.gif)
 
 > **Q:** Where is the person located?
 >
-> **Cosmos-Reason2-2B:** The person is located in the aisle of a store.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ The person is located in the aisle of a store.
 >
-> **PRISM:** The person is in the Aisle (Personal Care/Flour).
+> $\color{green}{\textbf{PRISM:}}$ The person is in the Aisle (Personal Care/Flour).
 
 ![activity_reasoning](examples/activity_reasoning.gif)
 
 > **Q:** What activity is this person performing and why?
 >
-> **Cosmos-Reason2-2B:** The person is carefully reading the label on the shampoo bottle.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ The person is carefully reading the label on the shampoo bottle.
 >
-> **PRISM:** The person is holding the Vatika shampoo bottle and examining the back label, likely checking ingredients, usage instructions, or expiration date.
+> $\color{green}{\textbf{PRISM:}}$ The person is holding the Vatika shampoo bottle and examining the back label, likely checking ingredients, usage instructions, or expiration date.
 
 ### Factual Accuracy & Domain Knowledge
 
@@ -120,17 +120,17 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 > **Q:** How many products did the person check? Respond with a number only.
 >
-> **Cosmos-Reason2-2B:** 1
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ 1
 >
-> **PRISM:** 2
+> $\color{green}{\textbf{PRISM:}}$ 2
 
 ![domain_knowledge](examples/domain_knowledge.gif)
 
 > **Q:** Would you expect to find beef in this aisle?
 >
-> **Cosmos-Reason2-2B:** Yes.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ Yes.
 >
-> **PRISM:** No, the visible items are tea boxes, indicating this is a tea aisle, not a grocery aisle for beef.
+> $\color{green}{\textbf{PRISM:}}$ No, the visible items are tea boxes, indicating this is a tea aisle, not a grocery aisle for beef.
 
 ### Spatial Reasoning & Affordances
 
@@ -138,17 +138,17 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 > **Q:** Can we open the refrigerator from where we are standing?
 >
-> **Cosmos-Reason2-2B:** Yes, it is possible to open it from where you are standing.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ Yes, it is possible to open it from where you are standing.
 >
-> **PRISM:** *\<think\>The person's current position is at a distance from the refrigerator, indicating they cannot interact directly.\</think\>* No, the refrigerator is too far away to be opened from this position.
+> $\color{green}{\textbf{PRISM:}}$ *\<think\>The person's current position is at a distance from the refrigerator, indicating they cannot interact directly.\</think\>* No, the refrigerator is too far away to be opened from this position.
 
 ![navigation_fridge](examples/navigation_fridge.gif)
 
 > **Q:** How can we get to the refrigerator from where we are standing?
 >
-> **Cosmos-Reason2-2B:** Walk straight ahead to the refrigerator on the left side of the aisle.
+> $\color{red}{\textbf{Cosmos-Reason2-2B:}}$ Walk straight ahead to the refrigerator on the left side of the aisle.
 >
-> **PRISM:** *\<think\>The refrigerator units are positioned along the left side of the aisle, adjacent to the bulk item display.\</think\>* Walk forward along the aisle, past the bulk item display, to reach the refrigerator on the left side.
+> $\color{green}{\textbf{PRISM:}}$ *\<think\>The refrigerator units are positioned along the left side of the aisle, adjacent to the bulk item display.\</think\>* Walk forward along the aisle, past the bulk item display, to reach the refrigerator on the left side.
 
 ## Files
 
