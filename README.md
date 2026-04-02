@@ -38,6 +38,94 @@ Average **+23.8pp** improvement over zero-shot baseline across 20+ evaluated tas
 | Intuitive Physics (3 tasks) | 51.7% | 69.3% | +17.6 |
 | **Overall** | **62.8%** | **86.6%** | **+23.8** |
 
+## Qualitative Examples
+
+Below are representative comparisons between the zero-shot Cosmos-Reason2-2B and PRISM (fine-tuned) on real retail video clips. PRISM produces more accurate, specific, and grounded answers across a range of retail understanding tasks.
+
+### Object Counting & Tracking
+
+> **Q:** How many products did the person put into the basket?
+>
+> **Cosmos-Reason2-2B:** Two products.
+>
+> **PRISM:** The person put one product, a small red container, into the basket.
+
+> **Q:** Count the products in the basket at the beginning and at the end.
+>
+> **Cosmos-Reason2-2B:** There are 3 products in the basket at the beginning and 4 products at the end.
+>
+> **PRISM:** The basket contains 2 items at the start, and 3 items at the end.
+
+> **Q:** Count the number of products in the basket by the end. What was the last item?
+>
+> **Cosmos-Reason2-2B:** There is one product in the basket by the end, which is a blue bottle.
+>
+> **PRISM:** The shopping basket contains 2 items. The last item added was the Hershey's Cocoa container.
+
+### Hand Interaction Recognition
+
+> **Q:** What actions are the hands performing?
+>
+> **Cosmos-Reason2-2B:** The hands are holding a blue basket and placing a jar into it.
+>
+> **PRISM:** The left hand is holding the basket, and the right hand is grasping an item.
+
+### Goal-Conditioned Reasoning (Chain-of-Thought)
+
+> **Q:** Is the person still evaluating the product or ready to place it in the basket? What should be his action next?
+>
+> **Cosmos-Reason2-2B:** The person is still evaluating the product. Next, he should place the guava in the basket.
+>
+> **PRISM:** *\<think\>The person is currently holding and inspecting the guava, indicating a decision-making process about its quality. The current sub-goal is "Evaluate Product Quality," which is part of the larger goal "Select Produce Item." Since the inspection is ongoing, the immediate next step is to make a final judgment.\</think\>* The person is still evaluating the guava's quality. The next action would be to place it in the basket if it meets their standards, or return it to the display if it does not.
+
+### Scene Understanding & Localization
+
+> **Q:** What is he doing in the scene?
+>
+> **Cosmos-Reason2-2B:** He is reaching into a fruit display case.
+>
+> **PRISM:** The person is inspecting a blackberry. They hold it in their hand and examine it closely.
+
+> **Q:** Where is the person located?
+>
+> **Cosmos-Reason2-2B:** The person is located in the aisle of a store.
+>
+> **PRISM:** The person is in the Aisle (Personal Care/Flour).
+
+> **Q:** What activity is this person performing and why?
+>
+> **Cosmos-Reason2-2B:** The person is carefully reading the label on the shampoo bottle, likely to ensure they are selecting the correct product based on their needs.
+>
+> **PRISM:** The person is holding the Vatika shampoo bottle and examining the back label. They are looking for information about the product, likely to check for details such as ingredients, usage instructions, or expiration date.
+
+### Factual Accuracy & Domain Knowledge
+
+> **Q:** How many products did the person check? Respond with a number only.
+>
+> **Cosmos-Reason2-2B:** 1
+>
+> **PRISM:** 2
+
+> **Q:** Would you expect to find beef in this aisle? Answer short.
+>
+> **Cosmos-Reason2-2B:** Yes.
+>
+> **PRISM:** No, the visible items are tea boxes, indicating this is a tea aisle, not a grocery aisle for beef.
+
+### Spatial Reasoning & Affordances
+
+> **Q:** Can we open the refrigerator from where we are standing?
+>
+> **Cosmos-Reason2-2B:** Yes, the refrigerator is on the left side of the aisle, and it is possible to open it from where you are standing.
+>
+> **PRISM:** *\<think\>The refrigerator unit is a large, multi-door appliance. The person's current position is at a distance from the refrigerator, indicating they are not in a position to interact with the appliance directly.\</think\>* No, the refrigerator is too far away to be opened from this position.
+
+> **Q:** How can we get to the refrigerator from where we are standing?
+>
+> **Cosmos-Reason2-2B:** We can walk straight ahead to the refrigerator, which is located on the left side of the aisle.
+>
+> **PRISM:** *\<think\>The refrigerator units are positioned along the left side of the aisle, directly adjacent to the bulk item display. The aisle is wide enough to accommodate comfortable walking.\</think\>* Walk forward along the aisle, moving past the bulk item display, to reach the refrigerator on the left side.
+
 ## Files
 
 ```
