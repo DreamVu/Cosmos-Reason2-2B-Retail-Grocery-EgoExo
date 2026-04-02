@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRISM Demo Gallery</title>
+<style>
+
+  /* Override HuggingFace static Space defaults */
+  body { all: unset !important; }
+  html, body {
+    background: #0b1120 !important;
+    color: #e2e8f0 !important;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
+  }
+  * { box-sizing: border-box !important; }
+  h1 { font-size: 32px !important; margin-top: 0 !important; }
+  p { color: inherit !important; font-size: inherit !important; margin: 0 !important; }
+  .card { max-width: none !important; border: none !important; padding: 0 !important; border-radius: 0 !important; margin: 0 auto 20px !important; }
+
+  :root {
+    --bg: #0b1120;
+    --card-bg: #151d2e;
+    --card-border: #1e293b;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+    --accent: #6366f1;
+    --red: #ef4444;
+    --green: #22c55e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1a1040 50%, #0f172a 100%);
+    border-bottom: 1px solid #1e293b;
+    padding: 48px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(99,102,241,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(34,211,238,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .hero h1 span {
+    background: linear-gradient(135deg, #818cf8, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    position: relative;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .stat-num.accent { color: #818cf8; }
+  .stat-num.cyan { color: #22d3ee; }
+  .stat-num.emerald { color: #34d399; }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  /* Links bar */
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    transition: all 0.2s;
+  }
+  .links a:hover {
+    color: #fff;
+    border-color: #6366f1;
+    background: rgba(99,102,241,0.1);
+  }
+
+  /* Filters */
+  .filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .filter-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid #334155;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover {
+    border-color: var(--accent, #6366f1);
+    color: #fff;
+  }
+  .filter-btn.active {
+    background: var(--accent, #6366f1);
+    color: #fff;
+    border-color: var(--accent, #6366f1);
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    margin-bottom: 20px;
+    overflow: hidden;
+    animation: fadeUp 0.4s ease both;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    border-color: #334155;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  .card.hidden {
+    display: none;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--card-border);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .num {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+  }
+  .card-info {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .card-body {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  .video-col {
+    flex: 0 0 400px;
+  }
+  .video-col video {
+    width: 400px;
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+    background: #000;
+    display: block;
+  }
+  .text-col {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Question */
+  .question {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(99,102,241,0.06);
+    border: 1px solid rgba(99,102,241,0.15);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .q-icon {
+    background: #6366f1;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  /* Answers */
+  .answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .answer {
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .answer.baseline {
+    background: rgba(239,68,68,0.05);
+    border: 1px solid rgba(239,68,68,0.15);
+  }
+  .answer.prism {
+    background: rgba(34,197,94,0.05);
+    border: 1px solid rgba(34,197,94,0.15);
+  }
+  .answer-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .answer.baseline .answer-label { color: #f87171; }
+  .answer.prism .answer-label { color: #4ade80; }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot.red { background: #ef4444; }
+  .dot.green { background: #22c55e; }
+  .tag {
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(239,68,68,0.15);
+    color: #fca5a5;
+    text-transform: uppercase;
+  }
+  .tag.green-tag {
+    background: rgba(34,197,94,0.15);
+    color: #86efac;
+  }
+  .answer-text {
+    color: var(--text);
+  }
+  .think {
+    display: block;
+    background: rgba(139,92,246,0.08);
+    border-left: 3px solid #8b5cf6;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    font-style: italic;
+    color: #c4b5fd;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid #1e293b;
+    color: var(--text-dim);
+    font-size: 12px;
+  }
+  .footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .footer a:hover { color: #fff; }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .card-body { flex-direction: column; }
+    .video-col { flex: none; }
+    .video-col video { width: 100%; }
+    .hero-stats { gap: 20px; }
+    .stat-num { font-size: 22px; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1><span>PRISM</span> Demo Gallery</h1>
+  <p class="hero-sub">Cosmos-Reason2-2B zero-shot vs PRISM fine-tuned on real retail video clips</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num accent">17</div>
+      <div class="stat-label">Examples</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num emerald">20+</div>
+      <div class="stat-label">Task Types</div>
+    </div>
+  </div>
+  <div class="links">
+    <a href="https://huggingface.co/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo" target="_blank">Model</a>
+    <a href="https://huggingface.co/datasets/DreamVu/PRISM-100K" target="_blank">Dataset</a>
+    <a href="https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo" target="_blank">GitHub</a>
+    <a href="https://arxiv.org/abs/2603.29281" target="_blank">Paper</a>
+  </div>
+</div>
+
+<div class="filters">
+  <button class="filter-btn active" data-cat="all">All (17)</button>
+  <button class="filter-btn" data-cat="Object Counting & Tracking" style="--accent:#22d3ee">Object Counting & Tracking (5)</button>
+  <button class="filter-btn" data-cat="Activity Recognition" style="--accent:#60a5fa">Activity Recognition (3)</button>
+  <button class="filter-btn" data-cat="Hand Interaction" style="--accent:#f472b6">Hand Interaction (2)</button>
+  <button class="filter-btn" data-cat="Domain Knowledge" style="--accent:#fbbf24">Domain Knowledge (2)</button>
+  <button class="filter-btn" data-cat="Spatial Reasoning" style="--accent:#fb923c">Spatial Reasoning (2)</button>
+  <button class="filter-btn" data-cat="Goal-Conditioned Reasoning" style="--accent:#a78bfa">Goal-Conditioned Reasoning (1)</button>
+  <button class="filter-btn" data-cat="Scene Understanding" style="--accent:#34d399">Scene Understanding (1)</button>
+  <button class="filter-btn" data-cat="Scene Localization" style="--accent:#34d399">Scene Localization (1)</button>
+
+</div>
+
+<div class="container">
+  
+    <div class="card" data-category="Goal-Conditioned Reasoning" style="animation-delay:0.0s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">1</span>
+          <span class="badge" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44">Goal-Conditioned Reasoning</span>
+        </div>
+        <span class="card-info">48 frames | 9.8s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_01.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>Is the person still evaluating the product or ready to place it in the basket? What should be his action next?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The person is still evaluating the product. Next, he should place the guava in the basket.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text"><span class="think">&lt;Think&gt;The person is currently holding and inspecting the guava, indicating a decision-making process about its quality. The current sub-goal is 'Evaluate Product Quality', which is part of the larger goal 'Select Produce Item'. Since the inspection is ongoing, the immediate next step is to make a final judgment. If the guava is deemed acceptable, the next action would be to place it in the basket. If not, they would likely return it to the display. Given the prompt states 'Evaluate Product Quality', the most logical next step after inspection is to place it in the basket if it meets the criteria. &lt;/Think&gt;</span>
+The person is still evaluating the guava's quality. The next action would be to place the guava in the basket if it meets their standards, or return it to the display if it does not.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Activity Recognition" style="animation-delay:0.05s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">2</span>
+          <span class="badge" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44">Activity Recognition</span>
+        </div>
+        <span class="card-info">44 frames | 5.1s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_02.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>What is he doing in the scene?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">He is reaching into a fruit display case.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The person is inspecting a blackberry. They hold it in their hand and examine it closely.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Scene Understanding" style="animation-delay:0.1s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">3</span>
+          <span class="badge" style="background:#34d39922;color:#34d399;border:1px solid #34d39944">Scene Understanding</span>
+        </div>
+        <span class="card-info">40 frames | 3.3s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_03.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>Describe the scene.</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The shelves are stocked with a variety of products, including personal care items, food, and household goods.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The scene shows the person walking down a wide aisle between shelves. The shelves are filled with personal care products, including shampoos, conditioners, and other toiletries.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Scene Localization" style="animation-delay:0.15000000000000002s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">4</span>
+          <span class="badge" style="background:#34d39922;color:#34d399;border:1px solid #34d39944">Scene Localization</span>
+        </div>
+        <span class="card-info">40 frames | 2.2s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_04.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>Where is the person located ?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The person is located in the aisle of a store.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The person is in the Aisle (Personal Care/Flour).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Activity Recognition" style="animation-delay:0.2s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">5</span>
+          <span class="badge" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44">Activity Recognition</span>
+        </div>
+        <span class="card-info">40 frames | 3.3s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_05.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>What activity is this person performing and why?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The person is carefully reading the label on the shampoo bottle, likely to ensure they are selecting the correct product based on their needs.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The person is holding the Vatika shampoo bottle and examining the back label. They are looking for information about the product, likely to check for details such as ingredients, usage instructions, or expiration date.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Object Counting & Tracking" style="animation-delay:0.25s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">6</span>
+          <span class="badge" style="background:#22d3ee22;color:#22d3ee;border:1px solid #22d3ee44">Object Counting & Tracking</span>
+        </div>
+        <span class="card-info">40 frames | 5.7s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_06.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>How many product the person evaluated? Why?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The person evaluated two products, the blue box and the green box, because they were the only two products being held and examined at that moment.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text"><span class="think">&lt;Think&gt;The person is holding two different products, a green box and a blue box, simultaneously. This indicates a comparison is being made. The action of 'Comparing Products' directly supports the idea that the person is evaluating these items for a decision. The presence of both items in hand, rather than just one, is a clear sign of a comparison. &lt;/Think&gt;</span>
+The person is evaluating two products, a green box and a blue box, to compare them for a decision.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Hand Interaction" style="animation-delay:0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">7</span>
+          <span class="badge" style="background:#f472b622;color:#f472b6;border:1px solid #f472b644">Hand Interaction</span>
+        </div>
+        <span class="card-info">40 frames | 3.3s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_07.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>Which hand did the person use to pick up the green product?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The person used their right hand to pick up the green product.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The person's left hand was holding the item, and their right hand was reaching and grasping it.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Object Counting & Tracking" style="animation-delay:0.35000000000000003s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">8</span>
+          <span class="badge" style="background:#22d3ee22;color:#22d3ee;border:1px solid #22d3ee44">Object Counting & Tracking</span>
+        </div>
+        <span class="card-info">40 frames | 1.9s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_08.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>How many products did the person check? Respond with a number only.</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">1</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Domain Knowledge" style="animation-delay:0.4s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">9</span>
+          <span class="badge" style="background:#fbbf2422;color:#fbbf24;border:1px solid #fbbf2444">Domain Knowledge</span>
+        </div>
+        <span class="card-info">40 frames | 2.7s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_09.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>Would you expect to find beef in this aisle?Answer short.</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">yes</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">No, the visible items are tea boxes, indicating this is a tea aisle, not a grocery aisle for beef.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Domain Knowledge" style="animation-delay:0.45s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">10</span>
+          <span class="badge" style="background:#fbbf2422;color:#fbbf24;border:1px solid #fbbf2444">Domain Knowledge</span>
+        </div>
+        <span class="card-info">40 frames | 2.8s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_10.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>What material is the grabbed item made of?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The grabbed item is made of plastic.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The grabbed item is a blue packet of Bru coffee. The packet is made of plastic.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Object Counting & Tracking" style="animation-delay:0.5s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">11</span>
+          <span class="badge" style="background:#22d3ee22;color:#22d3ee;border:1px solid #22d3ee44">Object Counting & Tracking</span>
+        </div>
+        <span class="card-info">36 frames | 2.7s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_11.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>How many products did the person put into the basket?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">Two products.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The person put one product, a small red container, into the basket.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Object Counting & Tracking" style="animation-delay:0.55s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">12</span>
+          <span class="badge" style="background:#22d3ee22;color:#22d3ee;border:1px solid #22d3ee44">Object Counting & Tracking</span>
+        </div>
+        <span class="card-info">36 frames | 2.3s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_12.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>Count the products in the basket at the beginning and at the end.</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">There are 3 products in the basket at the beginning and 4 products at the end.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The basket contains 2 items at the start, and 3 items at the end.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Hand Interaction" style="animation-delay:0.6000000000000001s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">13</span>
+          <span class="badge" style="background:#f472b622;color:#f472b6;border:1px solid #f472b644">Hand Interaction</span>
+        </div>
+        <span class="card-info">36 frames | 2.2s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_13.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>What actions are the hands performing?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The hands are holding a blue basket and placing a jar into it.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The left hand is holding the basket, and the right hand is grasping an item.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Object Counting & Tracking" style="animation-delay:0.65s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">14</span>
+          <span class="badge" style="background:#22d3ee22;color:#22d3ee;border:1px solid #22d3ee44">Object Counting & Tracking</span>
+        </div>
+        <span class="card-info">36 frames | 3.5s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_14.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>Count the number of products do we have in basked by the end? What was the last item?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">There is one product in the basket by the end, which is a blue bottle.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The shopping basket contains 2 items. The last item added was the Hershey's Cocoa container.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Spatial Reasoning" style="animation-delay:0.7000000000000001s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">15</span>
+          <span class="badge" style="background:#fb923c22;color:#fb923c;border:1px solid #fb923c44">Spatial Reasoning</span>
+        </div>
+        <span class="card-info">30 frames | 5.9s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_15.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>Can we open the refrigerator from where we are standing?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">Yes, the refrigerator is on the left side of the aisle, and it is possible to open it from where you are standing.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text"><span class="think">&lt;Think&gt;The refrigerator unit in the foreground is a large, multi-door appliance. To open it, one would need to reach over the counter and pull or push the doors. The person's current position is at a distance from the refrigerator, and their hands are not visible, indicating they are not in a position to interact with the appliance directly. Therefore, it is not possible to open the refrigerator from this vantage point. &lt;/Think&gt;</span>
+No, the refrigerator is too far away to be opened from this position.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Spatial Reasoning" style="animation-delay:0.75s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">16</span>
+          <span class="badge" style="background:#fb923c22;color:#fb923c;border:1px solid #fb923c44">Spatial Reasoning</span>
+        </div>
+        <span class="card-info">30 frames | 5.4s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_16.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>How can we get to the refrigerator from where we are standing?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">We can walk straight ahead to the refrigerator, which is located on the left side of the aisle.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text"><span class="think">&lt;Think&gt;The scene shows a wide aisle in a grocery store. The refrigerator units are positioned along the left side of this aisle, directly adjacent to the bulk item display. To reach the refrigerator, one would need to walk forward along the aisle, moving past the bulk items. The aisle itself appears to be wide enough to accommodate a person walking comfortably. &lt;/Think&gt;</span>
+Walk forward along the aisle, moving past the bulk item display, to reach the refrigerator on the left side.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-category="Activity Recognition" style="animation-delay:0.8s">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="num">17</span>
+          <span class="badge" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44">Activity Recognition</span>
+        </div>
+        <span class="card-info">44 frames | 3.9s</span>
+      </div>
+      <div class="card-body">
+        <div class="video-col">
+          <video controls loop muted preload="metadata" src="clip_17.mp4"></video>
+        </div>
+        <div class="text-col">
+          <div class="question">
+            <span class="q-icon">Q</span>
+            <span>What is the person in the black-and-white shirt doing?</span>
+          </div>
+          <div class="answers">
+            <div class="answer baseline">
+              <div class="answer-label">
+                <span class="dot red"></span>
+                Cosmos-Reason2-2B <span class="tag">Zero-shot</span>
+              </div>
+              <div class="answer-text">The person in the black-and-white shirt is pushing a shopping cart and walking towards the right side of the frame.</div>
+            </div>
+            <div class="answer prism">
+              <div class="answer-label">
+                <span class="dot green"></span>
+                PRISM <span class="tag green-tag">Fine-tuned</span>
+              </div>
+              <div class="answer-text">The person in the black-and-white shirt is pushing a shopping cart down the aisle. They appear to be looking at the items on the shelves as they move.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="footer">
+  <strong>PRISM</strong> — A Multi-View Multi-Capability Retail Video Dataset for Embodied VLMs<br>
+  <a href="https://dreamvu.ai" target="_blank" style="margin-top:4px;display:inline-block">DreamVu AI</a>
+</div>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.getAttribute('data-cat');
+      document.querySelectorAll('.card').forEach(function(card) {
+        if (cat === 'all') {
+          card.style.display = '';
+        } else {
+          card.style.display = (card.getAttribute('data-category') === cat) ? '' : 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
