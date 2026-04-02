@@ -40,9 +40,11 @@ Average **+23.8pp** improvement over zero-shot baseline across 20+ evaluated tas
 
 ## Qualitative Examples
 
-Below are representative comparisons between the zero-shot Cosmos-Reason2-2B and PRISM (fine-tuned) on real retail video clips. PRISM produces more accurate, specific, and grounded answers across a range of retail understanding tasks.
+Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tuned) on real retail video clips.
 
 ### Object Counting & Tracking
+
+<video src="examples/counting_basket.mp4" controls muted loop width="400"></video>
 
 > **Q:** How many products did the person put into the basket?
 >
@@ -50,11 +52,15 @@ Below are representative comparisons between the zero-shot Cosmos-Reason2-2B and
 >
 > **PRISM:** The person put one product, a small red container, into the basket.
 
+<video src="examples/counting_before_after.mp4" controls muted loop width="400"></video>
+
 > **Q:** Count the products in the basket at the beginning and at the end.
 >
 > **Cosmos-Reason2-2B:** There are 3 products in the basket at the beginning and 4 products at the end.
 >
 > **PRISM:** The basket contains 2 items at the start, and 3 items at the end.
+
+<video src="examples/counting_last_item.mp4" controls muted loop width="400"></video>
 
 > **Q:** Count the number of products in the basket by the end. What was the last item?
 >
@@ -64,6 +70,8 @@ Below are representative comparisons between the zero-shot Cosmos-Reason2-2B and
 
 ### Hand Interaction Recognition
 
+<video src="examples/hand_interaction.mp4" controls muted loop width="400"></video>
+
 > **Q:** What actions are the hands performing?
 >
 > **Cosmos-Reason2-2B:** The hands are holding a blue basket and placing a jar into it.
@@ -72,13 +80,17 @@ Below are representative comparisons between the zero-shot Cosmos-Reason2-2B and
 
 ### Goal-Conditioned Reasoning (Chain-of-Thought)
 
-> **Q:** Is the person still evaluating the product or ready to place it in the basket? What should be his action next?
+<video src="examples/goal_reasoning.mp4" controls muted loop width="400"></video>
+
+> **Q:** Is the person still evaluating the product or ready to place it in the basket?
 >
 > **Cosmos-Reason2-2B:** The person is still evaluating the product. Next, he should place the guava in the basket.
 >
-> **PRISM:** *\<think\>The person is currently holding and inspecting the guava, indicating a decision-making process about its quality. The current sub-goal is "Evaluate Product Quality," which is part of the larger goal "Select Produce Item." Since the inspection is ongoing, the immediate next step is to make a final judgment.\</think\>* The person is still evaluating the guava's quality. The next action would be to place it in the basket if it meets their standards, or return it to the display if it does not.
+> **PRISM:** *\<think\>The person is currently holding and inspecting the guava. The current sub-goal is "Evaluate Product Quality," part of the larger goal "Select Produce Item."\</think\>* The person is still evaluating the guava's quality. The next action would be to place it in the basket if it meets their standards, or return it to the display.
 
 ### Scene Understanding & Localization
+
+<video src="examples/action_recognition.mp4" controls muted loop width="400"></video>
 
 > **Q:** What is he doing in the scene?
 >
@@ -86,19 +98,25 @@ Below are representative comparisons between the zero-shot Cosmos-Reason2-2B and
 >
 > **PRISM:** The person is inspecting a blackberry. They hold it in their hand and examine it closely.
 
+<video src="examples/localization.mp4" controls muted loop width="400"></video>
+
 > **Q:** Where is the person located?
 >
 > **Cosmos-Reason2-2B:** The person is located in the aisle of a store.
 >
 > **PRISM:** The person is in the Aisle (Personal Care/Flour).
 
+<video src="examples/activity_reasoning.mp4" controls muted loop width="400"></video>
+
 > **Q:** What activity is this person performing and why?
 >
-> **Cosmos-Reason2-2B:** The person is carefully reading the label on the shampoo bottle, likely to ensure they are selecting the correct product based on their needs.
+> **Cosmos-Reason2-2B:** The person is carefully reading the label on the shampoo bottle.
 >
-> **PRISM:** The person is holding the Vatika shampoo bottle and examining the back label. They are looking for information about the product, likely to check for details such as ingredients, usage instructions, or expiration date.
+> **PRISM:** The person is holding the Vatika shampoo bottle and examining the back label, likely checking ingredients, usage instructions, or expiration date.
 
 ### Factual Accuracy & Domain Knowledge
+
+<video src="examples/product_counting.mp4" controls muted loop width="400"></video>
 
 > **Q:** How many products did the person check? Respond with a number only.
 >
@@ -106,7 +124,9 @@ Below are representative comparisons between the zero-shot Cosmos-Reason2-2B and
 >
 > **PRISM:** 2
 
-> **Q:** Would you expect to find beef in this aisle? Answer short.
+<video src="examples/domain_knowledge.mp4" controls muted loop width="400"></video>
+
+> **Q:** Would you expect to find beef in this aisle?
 >
 > **Cosmos-Reason2-2B:** Yes.
 >
@@ -114,17 +134,21 @@ Below are representative comparisons between the zero-shot Cosmos-Reason2-2B and
 
 ### Spatial Reasoning & Affordances
 
+<video src="examples/affordance_fridge.mp4" controls muted loop width="400"></video>
+
 > **Q:** Can we open the refrigerator from where we are standing?
 >
-> **Cosmos-Reason2-2B:** Yes, the refrigerator is on the left side of the aisle, and it is possible to open it from where you are standing.
+> **Cosmos-Reason2-2B:** Yes, it is possible to open it from where you are standing.
 >
-> **PRISM:** *\<think\>The refrigerator unit is a large, multi-door appliance. The person's current position is at a distance from the refrigerator, indicating they are not in a position to interact with the appliance directly.\</think\>* No, the refrigerator is too far away to be opened from this position.
+> **PRISM:** *\<think\>The person's current position is at a distance from the refrigerator, indicating they cannot interact directly.\</think\>* No, the refrigerator is too far away to be opened from this position.
+
+<video src="examples/navigation_fridge.mp4" controls muted loop width="400"></video>
 
 > **Q:** How can we get to the refrigerator from where we are standing?
 >
-> **Cosmos-Reason2-2B:** We can walk straight ahead to the refrigerator, which is located on the left side of the aisle.
+> **Cosmos-Reason2-2B:** Walk straight ahead to the refrigerator on the left side of the aisle.
 >
-> **PRISM:** *\<think\>The refrigerator units are positioned along the left side of the aisle, directly adjacent to the bulk item display. The aisle is wide enough to accommodate comfortable walking.\</think\>* Walk forward along the aisle, moving past the bulk item display, to reach the refrigerator on the left side.
+> **PRISM:** *\<think\>The refrigerator units are positioned along the left side of the aisle, adjacent to the bulk item display.\</think\>* Walk forward along the aisle, past the bulk item display, to reach the refrigerator on the left side.
 
 ## Files
 
