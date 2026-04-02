@@ -44,7 +44,7 @@ Below are comparisons between Cosmos-Reason2-2B (zero-shot) and PRISM (fine-tune
 
 ### Object Counting & Tracking
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/counting_basket.mp4
+![counting_basket](examples/counting_basket.gif)
 
 > **Q:** How many products did the person put into the basket?
 >
@@ -52,7 +52,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 >
 > **PRISM:** The person put one product, a small red container, into the basket.
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/counting_before_after.mp4
+![counting_before_after](examples/counting_before_after.gif)
 
 > **Q:** Count the products in the basket at the beginning and at the end.
 >
@@ -60,7 +60,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 >
 > **PRISM:** The basket contains 2 items at the start, and 3 items at the end.
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/counting_last_item.mp4
+![counting_last_item](examples/counting_last_item.gif)
 
 > **Q:** Count the number of products in the basket by the end. What was the last item?
 >
@@ -70,7 +70,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 
 ### Hand Interaction Recognition
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/hand_interaction.mp4
+![hand_interaction](examples/hand_interaction.gif)
 
 > **Q:** What actions are the hands performing?
 >
@@ -80,7 +80,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 
 ### Goal-Conditioned Reasoning (Chain-of-Thought)
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/goal_reasoning.mp4
+![goal_reasoning](examples/goal_reasoning.gif)
 
 > **Q:** Is the person still evaluating the product or ready to place it in the basket?
 >
@@ -90,7 +90,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 
 ### Scene Understanding & Localization
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/action_recognition.mp4
+![action_recognition](examples/action_recognition.gif)
 
 > **Q:** What is he doing in the scene?
 >
@@ -98,7 +98,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 >
 > **PRISM:** The person is inspecting a blackberry. They hold it in their hand and examine it closely.
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/localization.mp4
+![localization](examples/localization.gif)
 
 > **Q:** Where is the person located?
 >
@@ -106,7 +106,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 >
 > **PRISM:** The person is in the Aisle (Personal Care/Flour).
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/activity_reasoning.mp4
+![activity_reasoning](examples/activity_reasoning.gif)
 
 > **Q:** What activity is this person performing and why?
 >
@@ -116,7 +116,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 
 ### Factual Accuracy & Domain Knowledge
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/product_counting.mp4
+![product_counting](examples/product_counting.gif)
 
 > **Q:** How many products did the person check? Respond with a number only.
 >
@@ -124,7 +124,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 >
 > **PRISM:** 2
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/domain_knowledge.mp4
+![domain_knowledge](examples/domain_knowledge.gif)
 
 > **Q:** Would you expect to find beef in this aisle?
 >
@@ -134,7 +134,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 
 ### Spatial Reasoning & Affordances
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/affordance_fridge.mp4
+![affordance_fridge](examples/affordance_fridge.gif)
 
 > **Q:** Can we open the refrigerator from where we are standing?
 >
@@ -142,7 +142,7 @@ https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/exam
 >
 > **PRISM:** *\<think\>The person's current position is at a distance from the refrigerator, indicating they cannot interact directly.\</think\>* No, the refrigerator is too far away to be opened from this position.
 
-https://github.com/DreamVu/Cosmos-Reason2-2B-Retail-Grocery-EgoExo/raw/main/examples/navigation_fridge.mp4
+![navigation_fridge](examples/navigation_fridge.gif)
 
 > **Q:** How can we get to the refrigerator from where we are standing?
 >
